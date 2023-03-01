@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Karla, Arial, Helvetica, sans-serif;
+  color: #293264;
+  padding: 0;
+  margin: 0;
+}
+/*Height set to 100vh so that my blob images can get to the corners*/
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blob1 {
+  width: 30%;
+  height: 30%;
+  align-self: flex-end;
+}
+
+.blob2 {
+  width: 30%;
+  height: 30%;
+  align-self: flex-start;
+}
+/*Center container for main page*/
+.main-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-center h1 {
+  margin-bottom: -5px;
+  font-size: 3rem;
+}
+
+.main-center p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.main-center button {
+  height: 50px;
+  width: 200px;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background-color: #4d5b9e;
+}
