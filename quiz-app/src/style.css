@@ -55,3 +55,7 @@ body {
   border-radius: 10px;
   background-color: #4d5b9e;
 }
+
+.main-center button:active {
+  background-color: black;
+}
