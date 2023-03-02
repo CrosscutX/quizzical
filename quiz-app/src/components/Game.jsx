@@ -20,7 +20,18 @@ export default function Game(props) {
     let allAnswers = [];
     allAnswers.push(correctAnswer);
     allAnswers.push(...incorrectAnswers);
-    console.log(allAnswers);
+
+    let mixedAnswersArr = [];
+    function randomButtons() {
+      while (allAnswers.length > 0) {
+        let randomIndex = Math.floor(Math.random() * allAnswers.length);
+        let splicedAnswer = allAnswers.splice(randomIndex, 1);
+        mixedAnswersArr.push(...splicedAnswer);
+      }
+      console.log(mixedAnswersArr);
+    }
+    randomButtons();
+
     return (
       <div key={nanoid()} className={"question-container"}>
         <h2>{newQuestion}</h2>
