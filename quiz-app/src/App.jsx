@@ -15,7 +15,7 @@ export default function App() {
   useEffect(() => {
     async function getQuestions() {
       const res = await fetch(
-        "https://opentdb.com/api.php?amount=5&type=multiple"
+        "https://opentdb.com/api.php?amount=5&category=15&type=multiple"
       );
       const data = await res.json();
       setQuestions(data.results);
@@ -30,16 +30,11 @@ export default function App() {
       {gameStart === false ? (
         <div className="main-center">
           <h1>Quzzical</h1>
-          <p>A short 5 question quiz</p>
+          <p>Video Game Edition</p>
           <button onClick={startGame}>Start quiz</button>
         </div>
       ) : (
-        <Game
-          key={nanoid()}
-          questions={questions}
-          answer={null}
-          correctAnswers={null}
-        />
+        <Game questions={questions} />
       )}
       <img src={blob2} alt="blob2" className="blob2" />
     </div>

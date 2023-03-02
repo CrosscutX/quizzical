@@ -68,14 +68,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -150px;
 }
 
 .question-container {
+  margin-left: 40px;
+  margin-right: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #dbdef0;
+}
+
+.question-container {
+  text-align: center;
 }
 
 .button-container {
@@ -85,7 +92,7 @@ body {
 }
 
 .button-container button {
-  height: 30px;
+  height: 35px;
   min-width: 100px;
   max-width: 150px;
   background-color: white;
@@ -102,4 +109,10 @@ body {
   font-size: 1.2rem;
   border-radius: 10px;
   background-color: #4d5b9e;
+}
+
+@media screen and (max-width: 550px) {
+  .question-container h2 {
+    font-size: 1rem;
+  }
 }

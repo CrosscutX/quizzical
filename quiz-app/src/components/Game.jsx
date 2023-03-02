@@ -1,19 +1,31 @@
 import React from "react";
-
+import { nanoid } from "nanoid";
 export default function Game(props) {
-  console.log(props.questions[0].question);
+  function filterText(text) {
+    return text
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#039;", "'")
+      .replaceAll("&eacute;", "é")
+      .replaceAll("&amp;", "&");
+  }
 
   const questionList = props.questions.map((question) => {
     //This replaces the weird syntax with the proper quotes.
-    let newString = question.question
-      .replaceAll("&quot;", '"')
-      .replaceAll("&#039;", "'")
-      .replaceAll("&eacute;", "é");
-    return <h2>{newString}</h2>;
+    let newQuestion = filterText(question.question);
+    let correctAnswer = filterText(question.correct_answer);
+
+    return (
+      <div key={nanoid()} className="question-container">
+        <h2>{newQuestion}</h2>
+        <div className="button-container"></div>
+      </div>
+    );
   });
+
   return (
     <div className="game">
-      <div className="question-container">
+      {questionList}
+      {/* <div className="question-container">
         <h2>How would one say goodbye in Spanish!</h2>
         <div className="button-container">
           <button>Adios</button>
@@ -21,9 +33,8 @@ export default function Game(props) {
           <button>Cabbage Patch Kids</button>
           <button>Salir</button>
         </div>
-      </div>
+      </div> */}
       <button className="check-answer-btn">Check answers</button>
-      {questionList}
     </div>
   );
 }
