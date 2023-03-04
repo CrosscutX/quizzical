@@ -2,18 +2,16 @@ import { useState, useEffect } from "react";
 
 export default function Question(props) {
   const [selectedBtn, setSelectedBtn] = useState("");
+  const [buttonsValue, setButtonValue] = useState([]);
   const newQuestion = filterText(props.question.question);
   const correctAnswer = filterText(props.question.correct_answer);
   const incorrectAnswers = props.question.incorrect_answers.map((answer) => {
     return filterText(answer);
   });
-
+  const mixedAnswersArr = [];
   let allAnswers = [];
   allAnswers.push(correctAnswer);
   allAnswers.push(...incorrectAnswers);
-
-  const [buttonsValue, setButtonValue] = useState([]);
-  const mixedAnswersArr = [];
 
   function updateBtn(event) {
     setSelectedBtn(event.target.textContent);
@@ -31,7 +29,9 @@ export default function Question(props) {
 
   useEffect(() => {
     //Function that randomly splices the allAnswers array into a new random array
-    //so that correct answers aren't predictably placed
+    //so that correct answers aren't predictably placed.
+    //I put this function in useEffect because the buttons would randomly assign
+    //when clicked otherwise.
     function randomButtons() {
       while (allAnswers.length > 0) {
         let randomIndex = Math.floor(Math.random() * allAnswers.length);
@@ -42,7 +42,6 @@ export default function Question(props) {
     }
     randomButtons();
   }, []);
-  console.log(buttonsValue);
   return (
     <div className="question-container">
       <h2>{newQuestion}</h2>
