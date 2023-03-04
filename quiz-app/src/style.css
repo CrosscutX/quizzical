@@ -111,7 +111,7 @@ body {
 }
 /*Styling for selected buttons*/
 .selected-btn {
-  background-color: red;
+  background-color: #d6dbf5 !important;
 }
 /*Game End*/
 
