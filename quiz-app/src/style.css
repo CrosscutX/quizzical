@@ -81,12 +81,10 @@ body {
   border-bottom: 1px solid #dbdef0;
 }
 
-.question-container {
-  text-align: center;
-}
-
 .button-container {
   display: flex;
+  justify-content: center;
+  width: 100%;
   gap: 20px;
   margin-bottom: 20px;
 }
@@ -94,13 +92,14 @@ body {
 .button-container button {
   height: 35px;
   min-width: 100px;
-  max-width: 150px;
+  max-width: 200px;
   background-color: white;
   border: 1px solid #4d5b9e;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 
 .check-answer-btn {
+  align-self: center;
   margin-top: 20px;
   height: 50px;
   width: 200px;
@@ -110,9 +109,31 @@ body {
   border-radius: 10px;
   background-color: #4d5b9e;
 }
+/*Styling for selected buttons*/
+.selected-btn {
+  background-color: red;
+}
+/*Game End*/
 
+/*Media queries to help fix phone formatting issues*/
 @media screen and (max-width: 550px) {
   .question-container h2 {
     font-size: 1rem;
+  }
+
+  .question-container button {
+    max-width: 100px;
+    min-width: 60px;
+    font-size: 0.6rem;
+  }
+
+  .game {
+    margin-top: 0px;
+  }
+
+  .app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

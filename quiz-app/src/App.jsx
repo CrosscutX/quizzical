@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import blob1 from "./assets/blob1.png";
 import blob2 from "./assets/blob2.png";
 import Game from "./components/Game";
-import { nanoid } from "nanoid";
 
 export default function App() {
   const [gameStart, setGameStart] = useState(false);
@@ -23,7 +22,6 @@ export default function App() {
     getQuestions();
   }, []);
 
-  console.log(questions);
   return (
     <div className="app">
       <img src={blob1} alt="blob1" className="blob1" />
