@@ -21,7 +21,7 @@ export default function App() {
     }
     getQuestions();
   }, []);
-
+  console.log(questions);
   return (
     <div className="app">
       <img src={blob1} alt="blob1" className="blob1" />
