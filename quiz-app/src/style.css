@@ -103,7 +103,10 @@ body {
 }
 
 .button-container button {
-  height: 35px;
+  white-space: normal !important;
+  word-wrap: break-word;
+  min-height: 35px;
+  max-height: 70px;
   min-width: 100px;
   max-width: 200px;
   background-color: white;
