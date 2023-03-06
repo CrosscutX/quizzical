@@ -49,7 +49,12 @@ export default function Game(props) {
       ) : (
         <div className="play-again-container">
           <span>{`You scored ${totalCorrectAnswers}/5 correct answers`}</span>
-          <button className="play-again-btn">Play again</button>
+          <button
+            className="play-again-btn"
+            onClick={() => window.location.reload(false)}
+          >
+            Play again
+          </button>
         </div>
       )}
     </div>

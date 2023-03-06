@@ -16,6 +16,27 @@ export default function Question(props) {
   function updateBtn(event) {
     setSelectedBtn(event.target.textContent);
   }
+  //Handles the buttons classes based on a bunch of different criteria
+  function manageButtonClass(btnVal) {
+    if (!props.endgame) {
+      if (btnVal === selectedBtn) {
+        return "selected-btn";
+      }
+    }
+
+    if (props.endgame) {
+      if (btnVal === correctAnswer) {
+        return "correct-btn";
+      }
+      if (selectedBtn === btnVal && btnVal !== correctAnswer) {
+        return "wrong-btn";
+      }
+      if (selectedBtn !== btnVal && btnVal !== correctAnswer) {
+        return "neutral-btn";
+      }
+    }
+    return "";
+  }
 
   //This replaces the weird html entity syntax with the proper syntax.
   function filterText(text) {
@@ -44,7 +65,13 @@ export default function Question(props) {
   }, []);
 
   useEffect(() => {
-    function checkifCorrect() {}
+    //Adds 1 to the Game.jsx totalCorrectAnswers state
+    function checkifCorrect() {
+      if (selectedBtn === correctAnswer) {
+        props.correct();
+      }
+    }
+    checkifCorrect();
   }, [props.endgame]);
 
   return (
@@ -54,28 +81,28 @@ export default function Question(props) {
         <button
           type="button"
           onClick={updateBtn}
-          className={buttonsValue[0] === selectedBtn ? "selected-btn" : ""}
+          className={manageButtonClass(buttonsValue[0])}
         >
           {buttonsValue[0]}
         </button>
         <button
           type="button"
           onClick={updateBtn}
-          className={buttonsValue[1] === selectedBtn ? "selected-btn" : ""}
+          className={manageButtonClass(buttonsValue[1])}
         >
           {buttonsValue[1]}
         </button>
         <button
           type="button"
           onClick={updateBtn}
-          className={buttonsValue[2] === selectedBtn ? "selected-btn" : ""}
+          className={manageButtonClass(buttonsValue[2])}
         >
           {buttonsValue[2]}
         </button>
         <button
           type="button"
           onClick={updateBtn}
-          className={buttonsValue[3] === selectedBtn ? "selected-btn" : ""}
+          className={manageButtonClass(buttonsValue[3])}
         >
           {buttonsValue[3]}
         </button>
