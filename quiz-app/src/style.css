@@ -59,6 +59,19 @@ body {
 .main-center button:active {
   background-color: black;
 }
+
+.fade-in-btn {
+  animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*End main*/
 
 /*Game begin*/
@@ -101,6 +114,32 @@ body {
 .check-answer-btn {
   align-self: center;
   margin-top: 20px;
+  height: 50px;
+  width: 200px;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background-color: #4d5b9e;
+}
+
+.play-again-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.play-again-container span {
+  color: #293264;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.play-again-container button {
   height: 50px;
   width: 200px;
   border: none;

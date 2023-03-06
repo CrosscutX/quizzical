@@ -5,7 +5,7 @@ import Game from "./components/Game";
 
 export default function App() {
   const [gameStart, setGameStart] = useState(false);
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState("");
 
   function startGame() {
     setGameStart(true);
@@ -21,6 +21,7 @@ export default function App() {
     }
     getQuestions();
   }, []);
+
   console.log(questions);
   return (
     <div className="app">
@@ -29,7 +30,11 @@ export default function App() {
         <div className="main-center">
           <h1>Quzzical</h1>
           <p>Video Game Edition</p>
-          <button onClick={startGame}>Start quiz</button>
+          {questions && (
+            <button onClick={startGame} className="fade-in-btn">
+              Start quiz
+            </button>
+          )}
         </div>
       ) : (
         <Game questions={questions} />

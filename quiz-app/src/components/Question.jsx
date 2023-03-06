@@ -42,6 +42,11 @@ export default function Question(props) {
     }
     randomButtons();
   }, []);
+
+  useEffect(() => {
+    function checkifCorrect() {}
+  }, [props.endgame]);
+
   return (
     <div className="question-container">
       <h2>{newQuestion}</h2>
